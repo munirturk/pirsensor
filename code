@@ -1,0 +1,30 @@
+int sensor = 2;
+
+int sensordurum = LOW;
+int deger = 0;
+void setup() {
+  pinMode(sensor, INPUT);
+
+  Serial.begin(9600);
+}
+void loop() {
+  deger = digitalRead(sensor);
+  if (deger == HIGH) {
+ 
+
+    delay(150);
+    if (sensordurum == LOW) {
+      Serial.println("Hareket Tespit Edildi!");
+      sensordurum = HIGH;
+    }
+  } else {
+    
+
+    delay(300);
+    if (sensordurum == HIGH) {
+      Serial.println("Hareket Sonlandi!");
+      sensordurum = LOW;
+    }
+  }
+}
+
